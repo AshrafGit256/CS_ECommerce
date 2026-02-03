@@ -103,7 +103,7 @@ public class ProductsController : ControllerBase
         // ToLower() makes the search case-insensitive
         var products = await _context.Products
             .Include(p => p.Category)
-            .Where(p => p.Name.ToLower().Contains(query.ToLower()) || 
+            .Where(p => p.Name.ToLower().Contains(query.ToLower()) ||
                        p.Description.ToLower().Contains(query.ToLower()))
             .OrderBy(p => p.Name)
             .ToListAsync();
@@ -131,7 +131,7 @@ public class ProductsController : ControllerBase
 
         // Add product to database
         _context.Products.Add(product);
-        
+
         // Save changes to database
         await _context.SaveChangesAsync();
 
@@ -193,7 +193,7 @@ public class ProductsController : ControllerBase
 
         // Remove from database
         _context.Products.Remove(product);
-        
+
         // Save changes
         await _context.SaveChangesAsync();
 
