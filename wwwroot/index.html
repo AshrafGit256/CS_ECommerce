@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo/Brand -->
+                <h1 class="logo">🛒 ShopHub</h1>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button id="searchBtn">Search</button>
+                </div>
+                
+                <!-- Cart Icon with Badge -->
+                <div class="cart-icon" id="cartIcon">
+                    🛒 Cart
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Category Filter Section -->
+        <div class="categories-section">
+            <h2>Categories</h2>
+            <div class="categories-list" id="categoriesList">
+                <!-- Categories will be loaded here dynamically by JavaScript -->
+                <!-- Example: <button class="category-btn">Electronics</button> -->
+            </div>
+        </div>
+
+        <!-- Products Grid Section -->
+        <div class="products-section">
+            <h2 id="sectionTitle">All Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here dynamically by JavaScript -->
+                <!-- Each product will be a card with image, name, price, and "Add to Cart" button -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal (Hidden by default) -->
+    <!-- This popup appears when user clicks the cart icon -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <span class="close-btn" id="closeCartBtn">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Cart items will be displayed here -->
+                <div id="cartItems">
+                    <!-- JavaScript will populate this -->
+                </div>
+                
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Total Items:</span>
+                        <span id="totalItems">0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Price:</span>
+                        <span id="totalPrice">$0.00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-secondary" id="clearCartBtn">Clear Cart</button>
+                <button class="btn-primary" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner (shown while fetching data from API) -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- JavaScript file - contains all the API calls and logic -->
+    <script src="app.js"></script>
+</body>
+</html>
