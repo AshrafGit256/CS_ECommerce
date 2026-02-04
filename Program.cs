@@ -5,7 +5,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 // This registers the controllers so they can handle API requests
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Ignore circular references when serializing to JSON
+        // This prevents the infinite loop: Product -> Category -> Products -> Category...
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 
 // This enables API documentation
 builder.Services.AddEndpointsApiExplorer();

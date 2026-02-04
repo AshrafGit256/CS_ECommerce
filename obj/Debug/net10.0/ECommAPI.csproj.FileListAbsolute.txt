@@ -153,3 +153,4 @@ C:\Users\User\Desktop\C#_ECommerce\ECommAPI\bin\Debug\net10.0\zh-Hant\Microsoft.
 C:\Users\User\Desktop\C#_ECommerce\ECommAPI\bin\Debug\net10.0\ECommAPI.staticwebassets.runtime.json
 C:\Users\User\Desktop\C#_ECommerce\ECommAPI\obj\Debug\net10.0\compressed\sjc9pjinix-{0}-8owhttrvi1-8owhttrvi1.gz
 C:\Users\User\Desktop\C#_ECommerce\ECommAPI\obj\Debug\net10.0\compressed\9jyjjay758-{0}-ssy2lbr1rs-ssy2lbr1rs.gz
+C:\Users\User\Desktop\C#_ECommerce\ECommAPI\obj\Debug\net10.0\compressed\1xl8sylnsk-{0}-cpkk6i0770-cpkk6i0770.gz
