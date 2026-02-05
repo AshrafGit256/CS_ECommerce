@@ -154,5 +154,46 @@ public class AppDbContext : DbContext
                 CreatedAt = new DateTime(2024, 1, 1)
             }
         );
+
+        // Configure User entity
+        modelBuilder.Entity<User>(entity =>
+        {
+            // Email must be unique - no two users can have the same email
+            entity.HasIndex(u => u.Email).IsUnique();
+
+            // Configure the relationship: One User has many Orders
+            entity.HasMany(u => u.Orders)
+                .WithOne(o => o.User)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // If user is deleted, delete their orders too
+        });
+
+        // Configure Order entity
+        modelBuilder.Entity<Order>(entity =>
+        {
+            // Set precision for TotalAmount (2 decimal places)
+            entity.Property(o => o.TotalAmount)
+                .HasColumnType("decimal(18,2)");
+
+            // Configure the relationship: One Order has many OrderItems
+            entity.HasMany(o => o.OrderItems)
+                .WithOne(oi => oi.Order)
+                .HasForeignKey(oi => oi.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Configure OrderItem entity
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            // Set precision for PriceAtPurchase
+            entity.Property(oi => oi.PriceAtPurchase)
+                .HasColumnType("decimal(18,2)");
+
+            // Configure relationship with Product
+            entity.HasOne(oi => oi.Product)
+                .WithMany()
+                .HasForeignKey(oi => oi.ProductId)
+                .OnDelete(DeleteBehavior.Restrict); // Don't delete product if it's in an order
+        });
     }
 }
