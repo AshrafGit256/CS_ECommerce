@@ -26,6 +26,15 @@ public class AppDbContext : DbContext
     // CartItems table - stores shopping cart items
     public DbSet<CartItem> CartItems { get; set; }
 
+    // Users table - stores user accounts
+    public DbSet<User> Users { get; set; }
+
+    // Orders table - stores customer orders
+    public DbSet<Order> Orders { get; set; }
+
+    // OrderItems table - stores items in each order
+    public DbSet<OrderItem> OrderItems { get; set; }
+
     /// <summary>
     /// This method configures the database model and relationships
     /// It's called when creating/updating the database
